@@ -560,6 +560,110 @@ pre[class*="language-"] {
 
 <p><img src="assets/task4/screenshot_2-14_0-5-4_svg7.png" alt=""></p>
 
+<h2 id="toc_6">Part 5 (Pixel sampling/texture mapping)</h2>
+
+<p>While the textures we are applying to our triangles already rasters, a mapping pseudo-step function may be constructed that perfectly maps f(x, y) to the color data at x, y in the rasterized image when sampling the raster at a 1:1 scale.</p>
+
+<p>We run into the familiar set of problems when attempting to deviate from this 1:1 scale in either direction. This is to be expected, naturally, because our raster is a function that we must sample. For this reason, we can and often do refer to texture mapping as &quot;pixel sampling&quot; since the problems are one and the same. Just as with other functions, sampling it too slowly can result in aliasing because we miss detail where as sampling it more quickly than the underlying raster supports can result in missing data which must be interpolated.</p>
+
+<p>This last issue about interpolation is one we tackled in this problem. Here we implemented two separate sampling schemes, namely nearest and bi-linear sampling. Nearest is the most basic scheme as it simply &quot;snaps&quot; coordinates to the nearest valid sample in the raster. This can result in visible blockiness since multiple different pixels may be returned the same sample from the raster under this scheme. To rectify this, another sampling scheme known as bi-linear sampling may be used. Bi-linear sampling linearly interpolates the color of a sample from the four nearest pixels. This means that different samples, even when they have the same underlying four nearest pixels, will have differing sample data, which provides a smoother overall appearance. </p>
+
+<p>We can see a striking difference between these sampling methods by zooming into an image:</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">Nearest</th>
+<th style="text-align: center">Bi-linear</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center"><img src="assets/task5/screenshot_2-15_22-57-4_NEAREST.png" alt=""></td>
+<td style="text-align: center"><img src="assets/task5/screenshot_2-15_22-57-1_BILINEAR.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>In the nearest image, we can clearly see sharp edges between individual pixels from the raster whereas the in the bi-linear image the transition between raster pixels is much smoother and something that can be easily overlooked.</p>
+
+<p>Finally, we compare these two sampling methods and their interactions with SSAA and their impact on anti-aliasing. </p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">1x SSAA, nearest</th>
+<th style="text-align: center">16x SSAA, nearest</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center"><img src="assets/task5/screenshot_2-14_15-48-10_nearest_ss1.png" alt=""></td>
+<td style="text-align: center"><img src="assets/task5/screenshot_2-14_15-48-24_nearest_ss16.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">1x SSAA, bi-linear</th>
+<th style="text-align: center">16x SSAA, bi-linear</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center"><img src="assets/task5/screenshot_2-14_15-48-15_bi_ss1.png" alt=""></td>
+<td style="text-align: center"><img src="assets/task5/screenshot_2-14_15-48-32_bi_ss16.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>While, unsurprisingly, 16x SSAA of either interpolation scheme performs better than either 1x SSAA interpolation scheme, 1x SSAA bi-linear interpolation trades blows with 16x SSAA nearest despite needing just 1/16th of the memory and 1/16th of the processing time, which suggests it is a very good technique for efficiently resolving texture aliasing. This is not a terribly suprising result as bi-linear interpolation performs a similar function as 4x SSAA in that it captures more detail by combining neighboring samples except that it requires much less memory. Between the two 1x SSAA interpolation methods, bi-linearly again, unsurprisingly wins due to its increased ability to capture detail. A similar trend appears with 16x SSAA where bi-linear sampling plays off of 16x SSAA to produce a very smooth result whereas 16x SSAA struggles due to nearest magnifying errors.</p>
+
+<p>Generally, however, we may conclude that the difference between these two sampling methods is most severe when the frequency is very high and the resolution of the underlying raster is very low. In this case, nearest will be forced to pick one of the two colors for all pixels on screen leading to severe blockiness whereas bi-linear will be able to more appropriately cope with both the frequency and aliasing issues.</p>
+
+<h2 id="toc_7">Part 6 (Level sampling)</h2>
+
+<p>Level sampling is a technique which uses mipmaps, or progressively smaller pre-filtered variants of a texture, to resolve aliasing caused by texture minification. As discussed in part 5, this is resolves a problem caused by the texture&#39;s frequency, due to its high resolution but small screen size, is too high for the screen and thus becomes aliased. </p>
+
+<p>We implemented two variants of level sampling in our project; namely, nearest and linear. For each, the texture level was computed by observing the rate of change in texture coordinates between individual pixels in both the x and y direction (higher rates, naturally, indicating a larger display size) and then using the maximum rate of change to compute the level. These levels are then interpreted different by each scheme. In nearest, the level is simply snapped to the nearest mipmap level (clamping at the edges) and the pixel is directly sampled from that mipmap texture whereas in linear the two nearest levels&#39; samples are linearly interpolated according to the continuous level value in order to provide a mixed approximation of the two.</p>
+
+<p>To showcase the performance of the nearest level sampling engine, we now consider four samples which use the two different pixel sampling methods from above and compare them across the L_ZERO technique (no mipmap-ing) and L_NEAREST (nearest):</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">L_ZERO, P_NEAREST</th>
+<th style="text-align: center">L_ZERO, P_LINEAR</th>
+<th style="text-align: center">L_NEAREST, P_NEAREST</th>
+<th style="text-align: center">L_NEAREST, P_LINEAR</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center"><img src="assets/task6/1.png" alt=""></td>
+<td style="text-align: center"><img src="assets/task6/2.png" alt=""></td>
+<td style="text-align: center"><img src="assets/task6/3.png" alt=""></td>
+<td style="text-align: center"><img src="assets/task6/4.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>From this, we can make some key observations. First, and most poignantly, applying the correct mipmap level is significantly more important than sampling well when aliasing is a concern. This is because, despite bi-linear sampling performing well against aliasing in part 5, it is much easier to <em>prevent</em> aliasing from occurring in the first place than it is to attempt to recover from it through averaging after the fact. This is visible between the zero, linear and nearest, nearest images in which even with the inferior sampling algorithm the later displays significantly less aliasing. Despite this, however, we should not conclude that good sampling is totally irrelevant. Rather, the different between nearest, nearest and nearest, linear is still quite visible, albeit less severe and bi-linear sampling still results in better quality.</p>
+
+<p>With all these techniques under our belt, it now comes time to consider all of them together. We analyze each under the categories of speed, memory usage, and antialiasing power.</p>
+
+<p>Where better to start than where it all began: SSAA! SSAA is best characterized as the sledge hammer of antialiasing. It is very effective in nearly every situation but, unfortunately, it has such severe computational and memory penalties that it is almost unacceptably expensive at higher levels for any sort of real-time applications. This means that SSAA is a great tool for things like animations and movies but not so much a great choice for something like mobile games.</p>
+
+<p>Pixel sampling is the cheapest remedy of the bunch but, unfortunately, has one of the more minor impacts. While the nearest sampling technique is essentially free in that it is the minimum viable functionality required to texture a surface, it also provides the worst quality. Bi-linear sampling provides good local anti-aliasing (equivalent to SSAA 4x) without any additional memory pressure but at the cost of a small number of additional computations per pixel. For this reason, I feel that bi-linear texture sampling is a benign good feature in almost any rendering pipeline.</p>
+
+<p>Finally, we consider level sampling. Level sampling is a <em>very</em> powerful tool for stopping aliasing before it occurs. It does, however, incur a non-zero memory cost (up to ~33%) but, given the falling cost of DRAM and its marginal amount of easily vectorized computation, it is a very good choice for anti-aliasing especially when computational resources enable linear level sampling.</p>
+
 
 
 <script type="text/javascript">
