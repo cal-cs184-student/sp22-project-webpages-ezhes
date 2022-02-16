@@ -51,16 +51,26 @@ By revisiting the pointy end of red triangle we observed in part 1, we can very 
 
 ## Part 3 (Transforms)
 In this part, we implemented the SVG scale, rotate, and translate transformations. I used these transformations to create a robot ice skating.
+
 ![](assets/task3/my_robot.png)
 
+## Part 4 (Barycentric coordinates) 
+In this task, we implemented barycentric color interpolation for our triangles.
+
+Put succinctly, a barycentric coordinate system is an interpolation strategy in which various `n` samples are linearly and continuously interpolated (or "combined") according to an `n - 1` dimensional coordinate in the interior of that geometric object. The closer a point in the object is to a specific vertex, the more heavily that vertex's sample is weighted in the combination while still maintaining that the sum of the weights is equal to exactly 1.
+
+<center>
+![](assets/task4/screenshot_2-14_0-14-11_multitri.png)
+</center>
+
+We can see this more easily in the case of a triangle (`n = 3`). In the triangle above, we have the color green associated with the top vertex V\_g, red with the bottom left vertex V\_r, and finally blue with the bottom right vertex V\_b. The barycentric coordinate system is then used to interpolate the color across each of the points in the triangle. 
+
+We can make a few key observations. First, the points exactly at the vertices are exactly the sample colors (i.e. the color at point V\_g is exactly (0, 1, 0)). This makes sense since the point is maximally far from both V\_r and V\_b and thus must be maximally green. More interestingly, however, is the point exactly halfway between V\_r and V\_b. This gives us a nice purple which, if we recall from art class, is a mix of half red and half blue. Specifically, the shade here is (0.5, 0, 0.5) since it is a mix of half of the red sample and half of the blue sample since we are maximally far from green in this case. A similar effect may be observed at the other halfway edges (red-green forms yellow, blue-green forms teal/cyan). While seeing this same concept when moving off of the edges and into the interior space of the triangle is a bit trickier, we can see it at work in that there are no visibly sharp changes in color moving a single step in any direction on the triangle since the weights (and thus the mix) change smoothly due to the barycentric coordinate system.
 
 
+We can use barycentric coordinates to smoothly texture a variety of useful images. For example, this is a color wheel which linearly interpolates color around the circle (`basic/test7.svg`, default viewing parameters/SSAA=1x):
 
-
-
-
-
-
+![](assets/task4/screenshot_2-14_0-5-4_svg7.png)
 
 
 
