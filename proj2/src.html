@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>src</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Project 2</h1>
+
+<h2 id="toc_1">Introduction</h2>
+
+<p>In this project, we developed a fast, modular 3D rendering system capable of rendering and editing meshes defined either by bezier surfaces or a collection of triangles. To do this, we implemented bezier curve/surface rendering through de Casteljau subdvision, area weighed vertex normals in order provide smoother surface shading, as well as certain mesh editing features like edge flipping and splitting in order to support mesh upsampling through 4-1 loop subdivision. Additionally, we decided to take a number of these features further than required and added support for boundary edge splitting in order to support truly correct loop subdivision behavior on non-closed meshes.</p>
+
+<p>Although this project primarily focused on bezier curves and mesh modification, we learned a <em>lot</em> about a number of disciplines surrounding these topics in the process. Firstly, we learned (and had a lot of fun doing it!) how to use Blender to create models. While our art skills are nothing to write home about, it is very gratifying to see a model we handcrafted (or, computer-crafted!) rendering and upscaling in our program. Secondly, we--rather unfortunately--learned a lot of new techniques to debug highly complex algorithms ranging from render bisection, to judicious application of <code>assert</code>s, LLVM&#39;s Address Sanitizer, Xcode&#39;s Memory Graph, and so much more in order to help us more quickly root cause bugs and isolate them for analysis. While learning these techniques was significantly less enjoyable than modeling in Blender, it still provides us practical, valuable skills as engineers.</p>
+
+<h2 id="toc_2">Part 1 (Bezier curves with 1D de Casteljau subdivision)</h2>
+
+<p>De Casteljau&#39;s algorithm is a recursive process that finds points on a Bézier curve parameterized by variable <code>t</code> that ranges from 0 to 1. Each Bézier curve is defined by a set of <code>n</code> control points that are provided as input into the function. Each de Casteljau subdivision step takes those <code>n</code> points and generates <code>n-1</code> points which will be the input for the next subdivision step. This process will be repeated until we are left with only one point that will lie on the curve. For this part of the project, we implemented a function that evaluates a single step, given the control points from the previous step and the <code>t</code> parameter. In each step, we iterate through the provided control points (indexed by <code>i</code>), and the new point is given by <code>lerp(points[i], points[i+1], t)</code>, which is a linear interpolation function between the two points. We calculate <code>n-1</code> <code>lerp()</code>s  and we get the set of control points for the next iteration.</p>
+
+<h3 id="toc_3">Custom Bezier Curve:</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/bezier0.png" alt="Bezier Step 0">Bézier Control Points</td>
+<td><img src="./images/bezier1.png" alt="Bezier Step 1">De Casteljau Step 1</td>
+</tr>
+<tr>
+<td><img src="./images/bezier2.png" alt="Bezier Step 2">De Casteljau Step 2</td>
+<td><img src="./images/bezier3.png" alt="Bezier Step 3">De Casteljau Step 3</td>
+</tr>
+<tr>
+<td><img src="./images/bezier4.png" alt="Bezier Step 4">De Casteljau Step 4</td>
+<td><img src="./images/bezier5.png" alt="Bezier Step 5">De Casteljau Step 5 with Final Point on Curve</td>
+</tr>
+<tr>
+<td><img src="./images/bezier6.png" alt="Bezier Step 6">Final Bézier Curve</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_4">Modified Bezier Curve:</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/bezier7.png" alt="">Bézier Curve with Low <code>t</code> Value</td>
+<td><img src="./images/bezier8.png" alt="">Bézier Curve with Middle <code>t</code> Value</td>
+</tr>
+<tr>
+<td><img src="./images/bezier9.png" alt="">Bézier Curve with High <code>t</code> Value</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>These images came from modifying the <code>t</code> parameter.</p>
+
+<h2 id="toc_5">Part 2 (Bezier surfaces with separable 1D de Casteljau)</h2>
+
+<p>Bézier surfaces require performing de Casteljau&#39;s algorithm multiple times to define a surface. In this project, we were given a grid of of control points (as opposed to the 1D array in part 1 to define a curve). We are also give parameters <code>u</code> and <code>v</code> that correspond to the <code>t</code> parameter in part 1. In order to get a point on the Bézier surface using the <code>(u, v)</code> parameters, we first defined a function very similar to the one implemented in part 1 to evaluate one step of de Casteljau&#39;s algorithm given a 1D array of 3-dimensional points. Then, we wrote a function, that given a 1D array of control points and a parameter <code>t</code>, would fully iterate through all the steps and provide a point on the Bézier curve for those row of points. To get the final evaluation in 3D, we went row-by-row with the control points and evaluated points on the curve defined by the row of points and the parameter <code>t=u</code>. Now, we have a set of control points (one per row) corresponding to a curve on the final surface that runs parallel to the <code>v</code>-axis at a value <code>u</code>. To get the point on the surface, we now use these control points and parameter <code>t=v</code> with the same helper function. This will give us a point on this curve that will belong on the surface. We can vary <code>u</code> and <code>v</code> from 0 to 1 each and evaluate different points which when put together would define the surface.</p>
+
+<p>This allows us to smoothly render bezier surface based models such as <code>teapot.bez</code>:</p>
+
+<p><img src="images/bezier_surface.png" alt=""></p>
+
+<h2 id="toc_6">Part 3 (Area-weighted vertex normals)</h2>
+
+<p>To implement the area-weighted vertex normals, we first needed to find all the faces adjacent to the given vertex calculate a normal vector (scaled by the area of the face) to each of those faces. We would then have to sum all those vectors up and divide by the sum of the areas. To implement this, however, we used the property of cross-products that <code>u x v</code> provides a vector perpendicular to <code>u</code> and <code>v</code>, and its norm would be the area of the parallelogram created by <code>u</code> and <code>v</code> (which is equal to 2 times the area of the triangle). If we leave cross-product as is and used the norm of the cross-products for the denominator, this factor of 2 cancels out in both the numerator and denominator. Next, we just need two edges from every adjacent face, keeping both a running sum of their cross-products and a sum of the norms of their cross-products. At the end we can return the sum of the cross-products divided by the sum of the norms of the cross-products. To iterate around the faces and get the edges, we got the vertices&#39; halfedge, got the start and end location of the halfedge using <code>halfedge-&gt;vertex()-&gt;position</code> and <code>halfedge-&gt;twin()-&gt;vertex()-&gt;position</code> to define the first vector and did the same with <code>halfedge-&gt;next()</code> to get the second vector for the face. We would take the cross-product of these two vectors and the norm of the product. To iterate to the next face, we did <code>halfedge = halfedge-&gt;twin()-&gt;next()</code> which would correspond to the next halfedge coming out of the given vertex. We would repeat until we had fully looped around.</p>
+
+<h3 id="toc_7">Area-Weighted Vertex Normals – Phong Shading <code>dae/teapot.dae</code></h3>
+
+<table>
+<thead>
+<tr>
+<th>Default Flat Shading</th>
+<th>Phong Shading</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/flat.png" alt="Default Flat Shading"></td>
+<td><img src="./images/phong.png" alt="Phong Shading"></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_8">Part 4 (Edge flip)</h2>
+
+<p>To support the edge flip operation, we began by diagramming the flip operation:</p>
+
+<p><img src="images/4_diagram.png" alt=""></p>
+
+<p>We took care to ensure that the external geometry (edges numbered 2, 3, 4, and 5 as well as all vertices) were still external in the same locations in order to preserve mesh geometry/avoid needing to reflow the entire mesh. This was also useful because it meant that we did not need to worry about the order in which we applied the transformations as all external edges continued to hold the same twin, and thus no temporaries/careful tracking of modified data were required.</p>
+
+<p>With this structured translation in tow, we were able to simply capture a reference to all relevant geometry by traversing the mesh and then directly apply our changes, with the slight caveat that we silently refuse to flip boundary edges as there is no sensible way to fulfill such a request.</p>
+
+<table>
+<thead>
+<tr>
+<th>No flipped edges</th>
+<th>Four flipped edges</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="images/4_no_flipped.png" alt=""></td>
+<td><img src="images/4_four_flipped.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>These changes allowed us to flip any individual, non-boundary edge in the mesh. Above we provide an example of flipping the four edges near the highlighted vertex on the cow&#39;s forehead so that instead of converging at the vertex they all diverge. This was done by selecting each edge and then pressing the F key to flip each edge.</p>
+
+<h2 id="toc_9">Part 5 (Edge split)</h2>
+
+<p>To implement the split operation, we followed a similar approach as we took when build flip and began by diagramming the operation:</p>
+
+<p><img src="images/5_diagram.jpg" alt=""></p>
+
+<p>Again, we took special care to ensure that edges 1, 2, 3, and 4 as well as vertices 0, 1, 2, and 3 continued to be external so as not to have a cascading effect on the rest of the mesh. This strategy, once again, allowed us to avoid concerns of overwriting critical state since no geometric feature needed to access the previous state information (ex. the old twin of a halfedge) for any geometric feature except for itself. We then were able to  simply capture references to all old geometric features by traversing the mesh, creating the new required geometry, and then performing the transformation as illustrated above.</p>
+
+<p>Simple, right? Well, yes and no: although our approach was correct, implementing it quickly became a small nightmare and tossed us headlong into an <em>enormously</em> painful debugging session. Even though both members of our lab team independently implemented their own variant of this function, neither was initially fully correct and each had a handful of subtle issues which only reared their head when executing part 6&#39;s loop subdivision algorithm. Finding all of these issues--ranging from small transcription errors while converting from the diagram to code all the way to more severe issues like incorrect traversals while capturing references for source geometry and outright memory corruption--required a number of techniques.</p>
+
+<p>One of the most powerful debugging tools we leaned on was perhaps the most simple: <code>assert</code>! By sprinkling asserts all throughout our code base, we were able to ensure that our assumptions about both the input geometry and the changes we applied were consistent. By installing these checks in key places (such as <code>Halfedge::setNeighbors</code>), we were able to immediately halt the program when invalid changes are requested (such as setting a halfedge&#39;s next to its own twin, which is never valid) rather than allowing bogus geometry to propagate throughout the program and cause untold and <em>much harder to diagnose</em> damage to other subsystems. These helped catch a slew of issues and provide a very narrow search area (in many cases narrowing it down to a single line of code!) which sped up debugging considerably. This is largely a defensive programming technique and is certainly one we intend to carry forward both to other CS 184 assignments and other projects out in the world.</p>
+
+<p>Asserts, however, can only get you so far--after all, sometimes your assumption was simply wrong and other times the assertion failure was caused not by invalid assumptions/transformations made in the function but rather because the input geometry was broken in uncaught ways due to an earlier, buggy transformation. To resolve issues where we caught bugs <em>after</em> they occurred, we had to lean on tools like LLDB and Apple&#39;s memgraph tools to perform a post-mortem analysis. While the use of LLDB here is not entirely novel, applying memgraphs is somewhat more interesting.</p>
+
+<p>In short, Apple&#39;s memgraphs allow a debugger to continuously capture information about a program&#39;s heap state and the pointer references it contains as it executes. These graphs can be visualized in Xcode to show both the full reference hierarchy and the back trace that caused a certain piece of memory to be allocated and, later, freed:</p>
+
+<p><img src="images/5_memgraph.png" alt=""></p>
+
+<p>Memgraphs were incredibly useful for debugging this project because it allowed us to <em>see</em> the relationships and pointers between various objects in our runtime. Such insight was indispensable to us because it made it possible to simply scan over mesh geometry objects to validate that we were wiring up whole groups of objects correctly without needing to juggle piles of pointers and variables across various stack frames and breakpoints in LLDB. More powerfully, memgraphs can be <em>diffed</em> using <a href="https://developer.apple.com/library/archive/documentation/Performance/Conceptual/ManagingMemory/Articles/FindingPatterns.html">commandline tools like Apple&#39;s <code>heap</code></a> which allow us to view only the reference changes made between two discrete points (such as before a split and after a split) to zero in on the specific impact of any given operation.</p>
+
+<p>Eventually, however, we were able to successfully implement edge splitting:</p>
+
+<table>
+<thead>
+<tr>
+<th>Before split #1</th>
+<th>After split #1</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="images/5_1_0.png" alt=""></td>
+<td><img src="images/5_1_1.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Before flip #1</th>
+<th>After flip #1</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="images/5_2_0.png" alt=""></td>
+<td><img src="images/5_2_1.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Before flip #2</th>
+<th>After flip #2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="images/5_3_0.png" alt=""></td>
+<td><img src="images/5_3_1.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Before split #2</th>
+<th>After split #2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="images/5_4_0.png" alt=""></td>
+<td><img src="images/5_4_1.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>Finally, we demonstrate our implementation of the extra credit &quot;boundary edge&quot; splitting:</p>
+
+<table>
+<thead>
+<tr>
+<th>Before boundary split #1</th>
+<th>After boundary split #1</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="images/5_boundary_0.png" alt=""></td>
+<td><img src="images/5_boundary_1.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_10">Part 6 (Loop subdivision for mesh upsampling)</h2>
+
+<p>Our implementation of upsampling via 4-1 loop subdivision largely leaned on our previous work on both the edge split and flip operations. </p>
+
+<p>To support this, however, we had to make some small changes to our <code>splitEdge</code> implementation. Namely, we needed to add a few extra lines to properly set the <code>isNew</code> ivar on all newly created geometry. With this change, we were then able to implement <code>upsample</code> by first computing the new position for both all existing vertices by stashing (without applying!) them in the <code>newPosition</code> ivar as well as for all soon to be created vertices (namely those created by later invocations to <code>splitEdge</code>) in their respective edges&#39; <code>newPosition</code> ivar. We then sweep through the entire geometry and mark all old vertices and edges as old by setting their <code>isNew</code> ivar to <code>false</code>. Next, we traversed the mesh&#39;s edges, splitting all edges that were old in order through the <code>splitEdge</code> function to perform the &quot;division&quot; part of the subdvision. Notably, we perform this traversal in reverse order to slightly improve performance since we know that new edges are inserted at the head of the list and so we can avoid having to step over them simply by starting at the end. After this, we fixed up the mesh by flipping any edge which connected both an old vertex and a new vertex by invoking <code>flipEdge</code> on them. With the division performed and all edges corrected, we were then able to simply activate the new vertex positions by traversing the vertex list and moving the <code>newPosition</code> into the vertex&#39;s <code>position</code> ivar, and thereby completed the subdivision.</p>
+
+<p>Additionally, we chose to support subdivision against boundary edges. Due to our pre-existing support in <code>splitEdge</code> for splitting boundary edges, this only required a slight modification to the constants used in the weighted neighbor position sum and some minor filtering. </p>
+
+<p>With this subdivision algorithm in tow, we are now prepared to analyze its effect. To begin, we analyze the general impact of 4-1 loop subdivision against the <code>beetle.dae</code> mesh.</p>
+
+<table>
+<thead>
+<tr>
+<th>Treatment</th>
+<th>Image</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Baseline</td>
+<td><img src="images/6_beetle_0_0.png" alt=""></td>
+</tr>
+<tr>
+<td>1 round<br/>(no boundary edge support)</td>
+<td><img src="images/6_beetle_0_1_bad.png" alt=""></td>
+</tr>
+<tr>
+<td>1 round</td>
+<td><img src="images/6_beetle_0_1.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we can observe that with even one round of subdivision, we see considerable smoothing on surfaces such as in the crease between the bonnet and the headlight which, in the untreated mesh, is rather sharp and has a very different surface normals from its neighboring vertices. After just one round of subdivision, we can see both that the edge is less sharp and, thus, that the surface normals more smoothly transition. Additionally, we can rather easily observe the correctness of our boundary edge support by noting the different between 1 round with our additions and without and noting the very obvious <em>lack</em> of spikes in the correct implementation. </p>
+
+<p>When turning off the wireframe and inspecting the model from another angle, the effect is even more pronounced:</p>
+
+<table>
+<thead>
+<tr>
+<th>Treatment</th>
+<th>Image</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Baseline</td>
+<td><img src="images/6_beetle_1_0.png" alt=""></td>
+</tr>
+<tr>
+<td>2 rounds</td>
+<td><img src="images/6_beetle_1_2.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>We can see that the previously bumpy side panels and wheel wells are converted to smoothly changing surfaces, which leads to a much better appearance of the model.</p>
+
+<p>Loop subdivision, however, does have certain disadvantages. In the diagram below, consider the &quot;unprocessed cube&quot;, which is merely the raw <code>cube.dae</code> model, as it undergoes multiple rounds of subdivision:  </p>
+
+<table>
+<thead>
+<tr>
+<th>Treatment</th>
+<th>Unprocessed Cube</th>
+<th>Processed Cube</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Baseline</td>
+<td><img src="images/6_cube_0_0.png" alt=""></td>
+<td><img src="images/6_cube_1_0.png" alt=""></td>
+</tr>
+<tr>
+<td>1 round</td>
+<td><img src="images/6_cube_0_1.png" alt=""></td>
+<td><img src="images/6_cube_1_1.png" alt=""></td>
+</tr>
+<tr>
+<td>2 rounds</td>
+<td><img src="images/6_cube_0_2.png" alt=""></td>
+<td><img src="images/6_cube_1_2.png" alt=""></td>
+</tr>
+<tr>
+<td>3 rounds</td>
+<td><img src="images/6_cube_0_3.png" alt=""></td>
+<td><img src="images/6_cube_1_3.png" alt=""></td>
+</tr>
+<tr>
+<td>3 rounds </br>(front view)</td>
+<td><img src="images/6_cube_0_3_front.png" alt=""></td>
+<td><img src="images/6_cube_1_3_front.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we can see that the unprocessed cube, while becoming softer as expected, seems to lose its cube-y nature and instead transforms into an asymmetrical/somewhat lumpy lemon shape. This behavior, however, is expected when considering the starting geometry of the cube and the loop subdivision algorithm. </p>
+
+<p>This asymmetrical smoothing happens as a result of both the placement and number of extraordinary points as these points drive the smoothing. In the unmodified mesh, the extraordinary points land on the edge-corner intersections of the cube. Due to the self-propagating nature of extraordinary points (the same pattern of geometry recurs merely at a smaller scale upon), the areas surrounding an extraordinary point are never effected by smoothing no matter how many rounds are applied. </p>
+
+<p>Knowing this, we can leverage extraordinary points to retain our cube-y appearance by moving the extraordinary points to the center of each face, thereby always keeping the sides of the cube flat and smoothing everything between the sides. We can cause an extraordinary point on the center of each side by splitting the edge crossing each side of the cube once (see: baseline for &quot;processed cube&quot;) to construct what looks like a square with an X in it. We can observe that this geometric structure will never deteriorate because subdividing each triangle in this layout simply yields another slightly square with an X in it. Since the vertex at the center of this X always exists and it always only has four edges incident to it, this vertex is an extraordinary point as desired. Thus, by placing an extraordinary point on each side we are successfully able to prevent the cube from losing it&#39;s cube-y-ness.</p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
