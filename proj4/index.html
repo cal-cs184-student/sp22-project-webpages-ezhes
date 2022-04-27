@@ -1,7 +1,877 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	</head>
-	<body>
-		Project 4 here
-	</body>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>src</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Project 4</h1>
+
+<h2 id="toc_1">Introduction</h2>
+
+<p>In this project, we implemented a real-time physical simulator for cloth. Our simulator uses a mass and spring model to enforce a variety of structural, shearing, and bending constraints on the cloth as well as additional synthetic forces to enforce self and world collisions on the cloth in order to provide realistic and natural cloth behavior. Additionally, we implemented a handful of GLSL shaders to support visually interesting cloth appearances as well as some special geometric transformations to support advanced texturing mechanisms like displacement mapping. Finally, we chose to extend our simulation with support for dynamic, non-uniform forces like wind as well as with a handful of custom shader modifications.</p>
+
+<h2 id="toc_2">Part 1: Masses and springs</h2>
+
+<p>In this part, we implemented the cloth wireframe using masses and springs that simulated structural, shearing, and bending constraints.</p>
+
+<h3 id="toc_3">Cloth Wireframe (<code>scene/pinned2.json</code>):</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part1/part1_all_constraints.png" alt="All Mesh Constraints"> All Mesh Constraints</td>
+<td><img src="./images/part1/part1_no_shearing.png" alt="No Shearing Constraints"> No Shearing Constraints</td>
+</tr>
+<tr>
+<td><img src="./images/part1/part1_only_shearing.png" alt="Only Shearing Constraints"> Only Shearing Constraints</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_4">Part 2: Simulation via numerical integration</h2>
+
+<h3 id="toc_5"><code>scene/pinned2.json</code>: Default Parameters (<code>ks</code> = 5000, <code>density</code> = 15, <code>dampling</code> = 0.2%</h3>
+
+<p><img src="./images/part2/part2_normal.png" alt="Default Parameters (`ks` = 5000, `density` = 15, `dampling` = 0.2%)"> Default Parameters (<code>ks</code> = 5000, <code>density</code> = 15, <code>dampling</code> = 0.2%)</p>
+
+<h3 id="toc_6">Spring Constant (<code>ks</code>)</h3>
+
+<p>The spring constant <code>ks</code> determines how much force is required to stretch each spring (when put together determines how stretchy/stiff/springy the cloth itself is). Therefore, as we expect, a large spring constant leads to a stiffer cloth and a smaller spring constant leads to a much thinner-like and bendy cloth. With a smaller <code>ks</code> we see the cloth ripple a lot more and as the cloth falls it has more bounce. As we can see, its final resting spot is very droops more and has sharper folds. A larger <code>ks</code> value has opposite results, and has a much smoother and less bouncy animation.</p>
+
+<h4 id="toc_7">Resting Positions</h4>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part2/part2_ks500.png" alt="`ks` = 500"> <code>ks</code> = 500</td>
+<td><img src="./images/part2/part2_ks50000.png" alt="`ks` = 50000"> <code>ks</code> = 50000</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_8">Density</h3>
+
+<p>The density determines the mass of each point of the mesh (since for all these examples the number of points per area is the same). As we increase the density, we see that cloth moves as if it is heavier: it ends with a deeper fold. Also, during the animation it seems to have more rippling and is less smooth. On the other hand, are smaller density value causes a much slower-feeling and smoother animation which rests with a very shallow fold. </p>
+
+<h4 id="toc_9">Resting Positions</h4>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part2/part2_density1-5.png" alt="`density` = 1.5"> <code>density</code> = 1.5</td>
+<td><img src="./images/part2/part2_density150.png" alt="`density` = 150"> <code>density</code> = 150</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_10">Damping</h3>
+
+<p>For different values of damping the final position of the cloth remains the same. The only differences were with how fast the cloth fell and the amount of chaotic rippling in the cloth. With higher damping, the cloth moved much slower, but the animation was smooth and there was no rippling. However, with lower damping, the cloth was much more chaotic and it rippled a lot. It also swung back and forth once it reached the bottom.</p>
+
+<h4 id="toc_11">Resting Positions</h4>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part2/part2_damping1.png" alt="`damping` = 0.1%"> <code>damping</code> = 0.1%</td>
+<td><img src="./images/part2/part2_damping4.png" alt="`damping` = 0.4%"> <code>damping</code> = 0.4%</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_12">Midway Through Positions</h4>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part2/part2_damping1_mid.png" alt="`damping` = 0.1%"> <code>damping</code> = 0.1%</td>
+<td><img src="./images/part2/part2_damping4_mid.png" alt="`damping` = 0.4%"> <code>damping</code> = 0.4%</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_13"><code>pinned4.json</code></h3>
+
+<p><img src="./images/part2/part2_4pinned.png" alt="`pinned4.json`: Default Parameters (`ks` = 5000, `density` = 15, `dampling` = 0.2%"> <code>pinned4.json</code>: Default Parameters (<code>ks</code> = 5000, <code>density</code> = 15, <code>dampling</code> = 0.2%)</p>
+
+<h2 id="toc_14">Part 3: Handling collisions with other objects</h2>
+
+<h3 id="toc_15"><code>scene/sphere.json</code> Collision</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part3/part3_ks500.png" alt="`ks` = 500"> <code>ks</code> = 500</td>
+<td><img src="./images/part3/part3_ks5000.png" alt="`ks` = 5000"> <code>ks</code> = 5000</td>
+</tr>
+<tr>
+<td><img src="./images/part3/part3_ks50000.png" alt="`ks` = 50000"> <code>ks</code> = 50000</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>The larger the <code>ks</code> spring constant is, the stiffer the cloth is. Larger spring constants correspond with cloth that doesn&#39;t stretch as much when it collides with the sphere and also form fewer folds. Smaller spring constants lead to the cloth stretching and drooping more, along with having more folds.</p>
+
+<h3 id="toc_16"><code>scene/plane.json</code> Collision</h3>
+
+<p><img src="./images/part3/part3_plane.png" alt="`scene/plane.json`: Default Parameters (`ks` = 5000, `density` = 15, `dampling` = 0.2%"> <code>scene/plane.json</code>: Default Parameters (<code>ks</code> = 5000, <code>density</code> = 15, <code>dampling</code> = 0.2%)</p>
+
+<h2 id="toc_17">Part 4: Handling self-collisions</h2>
+
+<p>In this part we added support for cloth-cloth collisions. Collisions that happen due to the cloth interacting with itself, or self-collisions, are very important for realistic simulation. This is very much apparent when consider cases where the cloth falls on top of itself, such as when it is being dropped vertically:</p>
+
+<p><img src="./images/part4/fall_1.png" alt="">
+<img src="./images/part4/fall_2.png" alt="">
+<img src="./images/part4/fall_3.png" alt=""></p>
+
+<p>Since this is a physically approximate simulation, we can adjust parameters like the backing spring constant and the cloth density and observe the effects through simulation. We first consider the behavior of adjusting the spring constant, <code>Ks</code>:</p>
+
+<table>
+<thead>
+<tr>
+<th>500 N/m</th>
+<th>5000 N/m</th>
+<th>50000 N/m</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part4/ks_500.png" alt=""></td>
+<td><img src="./images/part4/ks_5000.png" alt=""></td>
+<td><img src="./images/part4/ks_50000.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>From this, we can easily observe that, as expected, when the spring constant decreases (i.e. the spring is less stiff), the cloth more easily folds in on itself. This can be seen by the fact that low spring constant values have significantly more and smaller bends whereas stiffer materials are more resistant to bending and have only a few, very large and slow curves due to their higher spring constant.</p>
+
+<p>We see a related effect when considering the same scenario except with a fixed spring constant and a variable cloth density:</p>
+
+<table>
+<thead>
+<tr>
+<th>1.5 g/cm^2</th>
+<th>15 g/cm^2</th>
+<th>150 g/cm^2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part4/ds_1_5.png" alt=""></td>
+<td><img src="./images/part4/ks_5000.png" alt=""></td>
+<td><img src="./images/part4/ds_150.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we can see an inverse pattern where increasing density yields smaller, more plentiful bends and lower density yields fewer, larger bends. This, again, makes perfect sense when considering the backing physics since a lower density mass will exert less force on the spring and, thus, will displace the spring a smaller distance.  </p>
+
+<h2 id="toc_18">Part 5: Shaders</h2>
+
+<p>A shader program is a special type of program that is targeted at a system&#39;s GPU rather than its CPU and, by nature, is intended to be massively parallel. This is very useful for implementing vertex shaders, or shaders that modify mesh geometry, and fragment shaders, or shaders that perform final point coloring. These two types of shader programs work together in a multi-phase render pipeline in which vertex shaders are applied first (to update geometry) and then fragment shaders are run (to determine individual point coloring). This order is important because it enables the updated geometry to impact lighting (i.e. displaced vertices can cast shadows) as it occurs in a later, dependent pass. We see this in action in the displacement map shader </p>
+
+<h3 id="toc_19">Blinn-Phong</h3>
+
+<p>The Blinn-Phong shader model is a fast (though not entirely physically accurate) perceptual approximation of lighting. It combines three core components in its lighting calculations, namely ambient lighting, diffuse reflection, and specular highlights. To better understand these components, we consider each in isolation:</p>
+
+<p><img src="./images/part5/phong_ambient.png" alt=""></p>
+
+<p>First, we have the ambient lighting. Ambient lighting is the &quot;generic&quot; light in the scene. It accounts for the fact that in real scenes we have tend to have some minimal amount of light hitting everything due to chaotic scattering. For this reason, ambient lighting in the Blinn-Phong model adds a minimal amount of backing light to every point.</p>
+
+<p><img src="./images/part5/phong_diffuse.png" alt=""></p>
+
+<p>Next, we have diffuse, or uniform, reflection based lighting. This assumes that the material is fully mat and scatters all received light uniformly in all directions. The amount of light received is approximated by applying Lambert&#39;s cosine law to consider the proportion of the &quot;surface&quot; (or, rather, point) that is in the same direction as the incoming beam of light. A surface which is facing the light head-on will be fully bright whereas a surface that is parallel to the light receives none. </p>
+
+<p><img src="./images/part5/phong_specular.png" alt=""></p>
+
+<p>Finally, we consider the specular reflections. Specular reflections account for non-mat materials (such as glossy plastics) which have bright highlights. These highlights are sensitive to the camera position as they are derived proportional to the overlap of the mirror and camera vectors.</p>
+
+<p><img src="./images/part5/phong_all.png" alt=""></p>
+
+<p>When all of these layers are additively combined, we end up with a nicely lit, somewhat shiny cloth as desired.</p>
+
+<h3 id="toc_20">Texture Maps</h3>
+
+<p>Next, we implemented texture mapping. This was largely a similar process as in project 1 (Rasterization) and merely involved looking up the fragment&#39;s (u, v) points in the texture map. </p>
+
+<p><img src="./images/part5/texture_mapping_custom.png" alt=""></p>
+
+<p>To show case our texture mapper, we present a wonderful simulated Oski tapestry. This is a great way to get a feel for how your various Oski-related decorations will look in your apartment before your splurge on a custom run of tapestries.</p>
+
+<h3 id="toc_21">Bump and Displacement Maps</h3>
+
+<p>We also added support for both bump and displacement maps. The bump map modifies the surface normal for lighting purposes and the displacement map moves the actual, underlying vertices in accordance to the aforementioned bump map. To see these effects in more detail, we begin by considering the bump map on its own:</p>
+
+<table>
+<thead>
+<tr>
+<th>Bump map (cloth)</th>
+<th>Bump map (sphere)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part5/bump_cloth.png" alt=""></td>
+<td><img src="./images/part5/bump_sphere.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Bump map (both)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part5/bump_both.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>The effect of bump mapping is particularly clear when inspecting this last image of the cloth since we can see that the spectral lighting effects take on the hatched texture of some squares in the bump map due to the varying surface normal, as desired.</p>
+
+<p>Next, we can turn on displacement mapping in addition to bump mapping. This moves the vertices of the scene objects outward along their normal according to the bump map:</p>
+
+<table>
+<thead>
+<tr>
+<th>Displacement map (o,a=128)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part5/displacement_sphere_128.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we can see that the sphere itself (i.e. not <em>just</em> the appearance) has hills and valleys in accordance with the depth map. </p>
+
+<p>Notably, however, the displacement map is susceptible to geometry coarseness where the bump map alone is not:</p>
+
+<table>
+<thead>
+<tr>
+<th>Displacement map (o,a=16)</th>
+<th>Displacement map (o,a=128)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part5/displacement_sphere_16.png" alt=""></td>
+<td><img src="./images/part5/displacement_sphere_128.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Bump map (o,a=16)</th>
+<th>Bump map (o,a=128)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part5/bump_map_16.png" alt=""></td>
+<td><img src="./images/part5/bump_map_128.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we can see that in the level 16 displacement map much of the ridged detail seen in the level 128 sphere has disappeared. We can also, however, observe that the bump map remains constant regardless of the coarseness. This happens because the displacement map vertex shader, as the name suggests, is run once <em>per vertex</em> whereas the the bump fragment shader is run once per sample. Thus, a larger number of vertices gives the displacement map more flexibility in fitting to the map and the bump fragment shader has no such issue since it is entirely disjoint from the vertex count.</p>
+
+<h3 id="toc_22">Mirror Shading</h3>
+
+<p>Finally, we implemented the mirror shader. This shader uses an environment cube and colors all samples by reflecting a vector from the camera onto the sample surface and then back into the environment. This yields realistic and very pretty results:</p>
+
+<table>
+<thead>
+<tr>
+<th>Sphere</th>
+<th>Cloth</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/part5/mirror_sphere.png" alt=""></td>
+<td><img src="./images/part5/mirror_cloth.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_23">Part 6: Extra credit</h2>
+
+<h3 id="toc_24">Wind</h3>
+
+<p>We implemented a wind simulation as well which would move along the z-axis. To do this we added additional forces in that direction along with Perlin noise to simulate some of the randomness. For Perlin noise, we used the paper written by Ken Perlin for its implementation.</p>
+
+<h4 id="toc_25">Wind Simulation: <code>pinned4.json</code></h4>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./images/ec/ec_wind1.png" alt="`pinned4.json`: Wind with Perlin Noise"> <code>pinned4.json</code>: Wind with Perlin Noise</td>
+<td><img src="./images/ec/ec_wind2.png" alt="`pinned4.json`: Wind with Perlin Noise"> <code>pinned4.json</code>: Wind with Perlin Noise</td>
+</tr>
+<tr>
+<td><img src="./images/ec/ec_wind3.png" alt="`pinned4.json`: Wind with Perlin Noise"> <code>pinned4.json</code>: Wind with Perlin Noise</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_26">Custom Shader</h3>
+
+<p>We implemented a custom shader which combines texture, Phong shading, and displacement shading all in one.</p>
+
+<h4 id="toc_27">Custom Shader: <code>scene/sphere.json</code></h4>
+
+<p><img src="./images/ec/ec_custom_shader.png" alt="`scene/sphere.json`: Custom Shader"> <code>scene/sphere.json</code>: Custom Shader</p>
+
+<h3 id="toc_28">Coloring Shaders</h3>
+
+<p>We also implemented our shaders so that they would use the colors selected from the color wheel by multiplying our <code>out_color</code> with <code>u_color</code>.</p>
+
+<h4 id="toc_29">Colored Shaders: <code>scene/sphere.json</code></h4>
+
+<p><img src="./images/ec/ec_colored_shader.png" alt="`scene/sphere.json`: Colored Shaders"> <code>scene/sphere.json</code>: Colored Shader</p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+
+</body>
+
 </html>
