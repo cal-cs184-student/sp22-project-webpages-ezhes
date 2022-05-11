@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>CS_184_Final_Project_Final_Report</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">CS 184 Final Project: <strong>Final Report</strong></h1>
+
+<h2 id="toc_1">Particle Systems with Flocking Behavior: Starling Murmurations</h2>
+
+<h2 id="toc_2">Team</h2>
+
+<ul>
+<li>Allison Husain</li>
+<li>Anik Gupta</li>
+<li>Shaina Chen</li>
+<li>Sydney Karimi</li>
+</ul>
+
+<h2 id="toc_3">Abstract</h2>
+
+<p>Our project’s goal was to explore an efficient way to simulate flocking behavior with complex particle systems, particularly to visualize starling murmurations. Our project involved building an interactive mobile app in which users can select flocking related parameters, tap the screen to direct the birds, and view the corresponding simulations. We believe this is a great way to create quick and easy animations of birds that can be placed onto any scene an animator wants. This work can extend beyond a bird simulation, from modeling the behavior of other animals (fish, ants, etc.) that exhibit similar behavior to modeling new synthetic materials scientists have been designing that contain particles which move in a flocking pattern. This problem got quite complex due to the many different variables involved with the motion of each bird as well as the number of birds we had to animate. At the same time, there are pairwise forces among all the birds that we had to account for, and that can get computationally heavy. In terms of understanding the physics and variables that affect these flocks, there are many papers around the topic that we referenced. In terms of speeding up calculations and making them less resource intensive, we implemented our own GPU supported spatially-partitioned bounding boxes and our own rendering pipeline, which helped tremendously with rendering large number of birds completely lag-free.</p>
+
+<h2 id="toc_4">Technical approach</h2>
+
+<p><strong>iOS App</strong></p>
+
+<p>We built the iOS app from scratch using Swift, C, and the Metal framework. Building an iOS app allowed us to maximize the interactivity and accessibility of our project — anyone anywhere can run this flocking simulation on any iOS device. This involved configuring the UI of the app, leveraging the Metal framework to directly access the device GPU to render the birds, and incorporating user interaction through various app elements. The app was configured with a Swift view controller that responded to user interaction by calling various rendering functions from a bird renderer class. This bird renderer class was responsible for setting up all the required Metal components ranging from the command queue to buffers, handling the simulation steps that determined the new positions of the bird flock by calling bird simulation functions written in C, and calling the appropriate Metal rendering functions to draw the frames by writing to the frame buffer. The bird simulation functions implemented the flocking rules while incorporating various user input values like the user tap location on the screen, the velocity limit, and the center contribution.</p>
+
+<p>We added sliders for interactivity and better visualization of how various forces and parameters impact the flocking motion. This involved adding sliders to the screen, adding constraints to ensure they were easily accessible and visually aligned across all kinds of screen sizes, configuring them with response events, and sending the new values from the view controller to the bird simulation code in C files. We chose the slider parameters based on values that had very noticeable changes in the resulting flock and implemented four parameter sliders: velocity limit, destination contribution, damping, and distance contribution. These sliders were implemented to instantly change the flocking behavior at the next simulation time step, which allowed us to create a responsive application.</p>
+
+<p>We also added the ability for a user to direct the birds by incorporating touch screen responsiveness in our flocking simulation code. We calculated the relative position of the taps on the screens and sent these positional values from the view controller to the bird simulation code. These values were used in the calculation of the flight direction for the following time steps, with further technical details explained below. </p>
+
+<p><strong>Bird Mechanics</strong></p>
+
+<p>For the bird flocking simulation, we implemented the basic mechanics outlined by the Boids algorithm in the research paper with many additional features to improve the flocking simulation and make it interactive.</p>
+
+<p>The bird simulation structure is outlined below.
+<em>Bird Data Structure</em></p>
+
+<div><pre><code class="language-none">typedef struct bd_graphics_bird {
+    float3 position;
+    float3 velocity;
+} bd_graphics_bird_s;</code></pre></div>
+
+<p>Each bird has a (x, y, z) position and velocity. Using a 3D position allowed us to visually simulate depth within the flock.</p>
+
+<p><strong>Flock Scene Data Structure</strong></p>
+
+<div><pre><code class="language-none">typedef struct bd_graphics_scene_configuration {
+    uint32x3_t scene_size;
+    float3 target_position; //position user has tapped on the screen
+    uint32_t bird_count;
+    uint32_t tile_size;
+    uint32x3_t tile_count;
+} bd_graphics_scene_configuration_s;</code></pre></div>
+
+<p>There are three main Boid rules from the research paper that we implemented. </p>
+
+<p>1) Birds will fly toward the center of mass of neighboring birds.</p>
+
+<p><center><img src="https://lh3.googleusercontent.com/UM4Za5Rh2sMzndreeDZqQIW1cUQosfhr0_qfhXBEC6rHxV1UiC_M8bufKnDEx6p4ij99Ze7N8QxKLSVg4zKHcSdCmEdSlsmKcH0n4UKR8hqKncJDmafhvz3TKuT3Y5aVdGiyNzRlthVzj1_TxJ2JQA" alt="Birds maintain cohesion with neighboring birds"></center></p>
+
+<p>To implement this, we first calculated the center of mass of all birds by finding the average position of all birds. Then, we have:</p>
+
+<div><pre><code class="language-none">center_adjustment_for_bird = (average_position_of_birds - bird-&gt;position) / (birds_count - 1) * CENTER_CONTRIBUTION;</code></pre></div>
+
+<p>where CENTER_CONTRIBUTION is some constant, currently set at 0.01.</p>
+
+<p>2) Birds will maintain a small distance away form other birds and objects to avoid collision. </p>
+
+<p><center><img src="https://lh5.googleusercontent.com/eCsst199QZ0nw6n5CUgPZi8Spu0MWLkEJHOYr9xPff0vf-YNFYtGAsMQab1h7OmlTNEcsXLzOE0zlxxwbfzaABeKPK2vEledqEWrExM-k64-U8rUBHHQCJrFMD7zQJwrLgf5GFXaB972DqS5rhtTkw" alt="Bird separation from neighboring birds"></center></p>
+
+<p>For each bird, we identify which birds are nearby by first calculating the size of the cube of tiles that lie within a certain distance away from the current bird. We iterate through each tile, ensure the screen position is in range for this tile, and then loop through all birds in this tile. If a bird in the tile’s relative distance away from the current bird is within some DISTANCE_SURROUNDING constant, it impacts the distance adjustment of the current bird with the equation below:</p>
+
+<div><pre><code class="language-none">distance_adjustment_for_bird -= (bird_in_tile-&gt;position - current_bird-&gt;position)*DISTANCE_CONTRIBUTION;</code></pre></div>
+
+<p>where DISTANCE_CONTRIBUTION is set to 0.1 initially and adjustable by the user through a slider. </p>
+
+<p>3) Birds will try to match the velocity with neighboring birds.</p>
+
+<p><center><img src="https://lh4.googleusercontent.com/q0Kt31fiBiMZTjpyw761V-RcRLgRiaqccRPVafXP684HalxZu9IIPr4jDD20BFTXcGe6qUyqiIEHgvi_9ssaeHl-KP02RiKHJwxr5I8v8r3IU26CUYXZdH800EFw0niRoRCNHtVZbKVwjksi6mOoBw" alt="Birds maintain alignment with neighboring birds"></center></p>
+
+<p>We first calculate an average velocity of all birds and then we have:</p>
+
+<div><pre><code class="language-none">velocity_adjustment_for_bird = ((average_velocity_of_birds - bird-&gt;velocity) / (birds_count - 1) - bird-&gt;velocity) * VELOCITY_CONTRIBUTION;</code></pre></div>
+
+<p>Given the basic bird implementation detailed in the research paper, we then implemented several main new features that were not included in the paper: target selection, momentum/smoothing of velocity, and capped velocity to ensure a stable system.</p>
+
+<p>For target selection, we added the ability for the bird flock to respond to user interaction by allowing users to direct the birds by tapping on the screen. After a user taps the screen, the positional values of the tap are used by the bird simulation to adjust the velocity of the birds with the below equation:</p>
+
+<div><pre><code class="language-none">destination_adjustment_for_bird = (user_tapped_position - bird-&gt;position) * DESTINATION_CONTRIBUTION;</code></pre></div>
+
+<p>where DESTINATION_CONTRIBUTION is initially set to 0.02 and adjustable by the user through a slider. However, simply adjusting the destination like this resulted in unrealistically fast flock shifts toward the user tapped location at times. We modified this calculation by calculating the destination velocity and adding a velocity limit check which caps the destination adjustment for a bird if the velocity exceeds some constant MAX_DESTINATION_VELOCITY: </p>
+
+<div><pre><code class="language-none">destination_velocity = pow(pow(destination_adj.x, 2) + pow(destination_adj.y, 2) + pow(destination_adj.z, 2), 0.5); // current velocity to user tapped position
+
+if (destination_velocity &gt; MAX_DESTINATION_VELOCITY) {
+   destination_adjustment_for_bird = destination_adjustment_for_bird / 
+      destination_velocity * MAX_DESTINATION_VELOCITY;
+}</code></pre></div>
+
+<p>We calculated the total velocity adjustment for each bird as the sum of all the above adjustments. However, we realized during the testing of the app that the sum of all the above adjustments could result in unstable behavior/jerky adjustments in flight. To combat this, we implemented smoothing of motion through adding a damping factor to this total velocity adjustment. This factor is adjustable by the user to highlight the difference an effective smoothing factor can make on the flocking motion.</p>
+
+<p>Finally, we noticed that even added velocity limits to keep the system stable and prevent chaos. Sometimes, the combined velocity adjustment was high enough that the bird flock would appear to fly at unrealistic speeds. We implemented velocity caps by first calculating the current velocity of the bird, checking if it exceeds the allowed limit, and then adjusting the new velocity of the bird accordingly if it exceeds the limit. This limit is set by the user through a slider.</p>
+
+<p>Combined, the bird flight mechanics from both the paper and our own adjustments allowed for us to simulate flocking in an interactive way.</p>
+
+<p><strong>Uniform Spatial Partitions (Tile Accelerator)</strong></p>
+
+<p>Our original solution for calculating separation forces required calculating all pairwise distances between birds which was \[O(n^2)\] even though we only cared about birds within a certain radius of the bird we are processing. This is because for every bird, we had to calculate the distance to every other bird and filter for the ones within a certain radius. To speed this up, we implemented our own GPU supported uniform spatial partitioning data structure, which we call the Tile Accelerator. </p>
+
+<p>Tile Data Structures:</p>
+
+<div><pre><code class="language-none">typedef struct bd_graphics_tile { // each grid box that we store in a list
+    uint32_t head_entry; // offset into &quot;heap&quot; buffer for head of a linked list
+} bd_graphics_tile_s;
+
+typedef struct bd_graphics_tile_entry_bird {
+    uint32_t bird_idx; // index into the list of birds
+    uint32_t previous_entry; // offset index to previous entry in linked list
+} bd_graphics_tile_entry_bird_s;</code></pre></div>
+
+<p><center><img src="https://paper-attachments.dropbox.com/s_03B9CDA41CD63E50D2EFB3B7FCDDF51452883A115434470B33190E899DFDC419_1652126246767_Untitled+drawing_grid.png" alt="Diagram of the tile accelerator data structures"></center></p>
+
+<p><center>Diagram of the tile accelerator data structures </center></p>
+
+<p><center><img src="https://paper-attachments.dropbox.com/s_03B9CDA41CD63E50D2EFB3B7FCDDF51452883A115434470B33190E899DFDC419_1652126363193_Untitled+drawing_orig.png" alt=""></center></p>
+
+<p><center> This image represents the grid-like structure we build on the screen, with the birds being represented by the colored dots. The red dot is the bird whose forces we want to find out, the yellow dots represent the birds within a given radius from the queried bird (red dot). The entire grid was the original naive search space, the gray circle is the ideal search space, and the green square is now the updated search space, and we only calculate the distances between the red dot with the dots inside that square. </center></p>
+
+<p>From the diagram we can see that we are able to reduce the search space for a particular radius to just a localized cube (if we imagine the grid expanded to 3D) instead of the entire 3D world space, making it \(O(n)\) instead of \(O(n^2)\). We could do that easily by finding the grid locations of the queried bird and searching the surrounding grids boxes which intersect the search radius. From experimentation, we found that no matter the number of birds in the simulation and the search radius, there were about 10-20 birds within the search cube, from which only 5-10 were within the search radius. We were able to observe these numbers to be constant no matter the number of birds and radius because our intraflock forces try to push the birds away from each others’ radii which reduces the number of birds in our search space. Due to this behavior and and our custom GPU accelerated rendering pipeline, we were able to achieve massive speedups and reduce lag.</p>
+
+<p><strong>Rendering Pipeline</strong></p>
+
+<p>With our algorithms and data structures in tow, we are now prepared to discuss our actual implementation.</p>
+
+<p><center><img src="https://paper-attachments.dropbox.com/s_A85C0BB6E4D9C015F8155D68AF025B21D6CEEC7D94EAA732650BE08126419B1D_1652245998441_image.png" alt=""></center></p>
+
+<p>Our iOS application’s render pipeline breaks down into three neat sections which we will explore in detail.</p>
+
+<p>The first component is what our team dubbed the “Render Host System”. This component, essentially, is the basic UI that the end-user interacts with. This interface surfaces a number of live, user-interactive simulation configurations options ranging from damping forces to different mixes of flock forces as well as more novel features which take advantage of our program’s unique place on a touch-first mobile device where a user can simply tap anywhere on the screen to redirect the birds and cause them to flock towards a specific point.</p>
+
+<p><img src="https://paper-attachments.dropbox.com/s_A85C0BB6E4D9C015F8155D68AF025B21D6CEEC7D94EAA732650BE08126419B1D_1652246623806_IMG_1574.PNG" alt=""></p>
+
+<p>We wrote the Render Host System in Swift using Apple’s native UIKit. Doing so allowed us to use standard system UI components like sliders as well as visually enticing effects like background blurs, which may be seen behind the slider control panel.</p>
+
+<p>Of course, a shiny UI does not an app make! To simulate the birds themselves, we implement the algorithm discussed above in C using carefully crafted data structures such that it can easily be run on either the CPU or on the GPU using a Metal compute shader. This capability for acceleration was a key focus of our project and so even though we wrote our code initially for the CPU, we knew we intended to run it as a compute shader and so we took care to structure it in a way that is GPU friendly. Once this pass of the render phase is complete, we are left with a vector of updated bird positions as well as an updated tile acceleration structure.</p>
+
+<p>Finally, in our third render phase we are able to take these positions and acceleration structures and render them out to the screen. For performance, we again make use of our tile based structure except here, instead of focusing on distance for neighbor force calculations, we use tiles as a natural unit of concurrent GPU-based rendering. This is because a bird, as an atom, cannot exist in more than one tile at any given moment. This exposes significant opportunity for parallelism while rendering birds to the screen that is not immediately available to single-threaded CPU implementations. To render out each of the birds, each tile linearly walks its linked list of birds and renders a small circle with a color determined by its nearness to the camera plane. This strategy ended up being highly performant and significantly improved over our earlier, naive GPU rendering attempts which made heavy use of atomics, which suffered both from the overhead of atomic memory operations as well as cache locality issues stemming from nearly random accesses to the frame buffer. Ultimately, when combining this tile based rendering system with our tile based simulation system, we were able to achieve wonderful performance on small, mobile devices like the iPhone and iPad.</p>
+
+<p><strong>Problems Encountered</strong></p>
+
+<p>One of the largest and most complicated problems we encountered was lag when we tried to render even 1,000 birds. As we detailed in the Uniform Spatial Partitions and Rendering Pipeline sections, we managed to cut down on computations giving us great speed ups (18.3x faster for 1,000 birds and 40.2x faster for 10,000 birds). </p>
+
+<p>Another problem we encountered was with chaotic motions of the birds. With all these forces being applied on the birds, we noticed that the birds were changing directions and speed quite rapidly in each timestep, so we implemented a form of velocity damping by updating our velocity using a momentum term (similar to an exponential moving average). None of the papers we referenced used this method, but we found that it really helped make the system less chaotic. </p>
+
+<p>Lastly, we found that since our velocity from each timestep was additive, sometimes we would have birds continuously pick up speed and run off. To combat this, we capped the velocities of the birds, which was motivated by the physical speed limitations of birds.</p>
+
+<p><strong>Lessons Learned</strong></p>
+
+<p>We challenged ourselves to learn new frameworks and languages for this final project. Instead of using just C like our past projects, we sought to make our final project interactive and eventually easily accessible to the public by developing a mobile application that was both interactive and fast. This was a challenging task because it required us to learn/re-learn a lot of different languages and technologies. We completed the project with no starter code because we wanted to customize the behavior of the flocking simulation and maintain full control over the frameworks used and structure of the mobile app. Learning how to render with Metal — a framework we had no prior experience with — was difficult because it involved understanding how various Metal components and functions worked together to create a rendering pass and present a drawable on the screen. Learning Metal was overall a cool experience because it allowed us to see how various graphics topics like sampling and texture mapping applied to a graphics framework people actually use in real world graphics applications like video games. We also learned how to optimize the rendering of the flocking behavior through minimizing the number of calculations and updates performed per simulation time step, which was especially important because we were building this as a mobile application. For example, we started off with leveraging texture mapping to render the background image in the same view as the birds, which resulted in us having to perform texture mapping for every simulation time step. This resulted in a noticeable lag in the application so we ended up changing the background image to be displayed in a subview that was behind the Metal subview. We also challenged ourselves to build a iOS mobile app, which was a new experience for some and an opportunity to relearn mobile development for others. Swift is a relatively new language for most of us and we had to learn how constraints, user interactions, and event handlers worked in iOS apps. We learned how bird flocking physics worked through reading papers on the forces involved in these calculations. Overall, we thought this project struck a good balance between applying familiar 184 concepts learned in class and pushing us out of our comfort zone with new frameworks and applications.</p>
+
+<h2 id="toc_5">Results</h2>
+
+<p><img src="https://lh5.googleusercontent.com/SddN1ug4orXVR4xzfwPPMOuH2KGO7-wz6WMkdBh5PX1Ww1bt6bqyjcK17evg_sqRmhKnGzTPYIMSmeute3qPZdrJtFSxL73yII6tDxKsIcrTJiCTTTFZEzxxwsQDyTAcr40Rj4Ar8zIS227b-aWoSg" alt="Cluster of birds flocking"></p>
+
+<p><img src="https://lh6.googleusercontent.com/4ZuGUSlpVYcNHF_iBHwSA0AJ92zPVXno_2kKEpPcmLM7v1P6ZWDmI3NoJPqxEFB790jae4-VDEhIubeIA9FvX8zpmQzUb1QCSKzJGEVkfULuT9VksaEfXH7vKQbmVrXCMw6EotUygJMAQbMBd0F9oA" alt="3D cloud of untargeted birds (whiter pixels are closer)"></p>
+
+<p><strong>Video</strong></p>
+
+<iframe src="https://drive.google.com/file/d/1_Mk_y_5zI566rD593G0bTsGlS7IfQMtr/preview" width="640" height="480" allow="autoplay"></iframe>
+
+<p><a href="https://drive.google.com/file/d/1_Mk_y_5zI566rD593G0bTsGlS7IfQMtr/view?usp=drivesdk">(external link)</a></p>
+
+<p><strong>Speedup Achieved</strong></p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Number of Birds</strong></th>
+<th><strong>Naive Solution</strong></th>
+<th><strong>Tile Accelerator + Custom Rending Pipeline</strong></th>
+<th><strong>Speedup</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1,000 Birds Rendered</td>
+<td>0.11370 seconds/frame</td>
+<td>0.00620 seconds/frame</td>
+<td><strong>18.3x Speedup</strong></td>
+</tr>
+<tr>
+<td>10,000 Birds Rendered</td>
+<td>4.40607 seconds/frame</td>
+<td>0.10943 seconds/frame</td>
+<td><strong>40.2x Speedup</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>As we can see from this table due to our tile partitioning and rendering pipeline, we measured about an 18.3 times speedup while rendering 1,000 birds, and 40.2 times speedup while rendering 10,000 birds. This shows that our speedup scales well when we scale the number of birds, making it extremely beneficial for rendering many birds. Also, with this speedup we are able to render simulations of large number of birds that we otherwise couldn’t at 60 frames per second, which allowed for smoother and more realistic results.</p>
+
+<h2 id="toc_6">References</h2>
+
+<p><strong>References</strong></p>
+
+<ul>
+<li><a href="https://www.nytimes.com/2022/04/04/travel/starling-murmurations.html?referringSource=articleShare">https://www.nytimes.com/2022/04/04/travel/starling-murmurations.html?referringSource=articleShare</a></li>
+<li><a href="https://arxiv.org/ftp/arxiv/papers/0911/0911.4393.pdf">https://arxiv.org/ftp/arxiv/papers/0911/0911.4393.pdf</a>
+-<a href="https://www.nytimes.com/2021/10/01/science/physics-midges-starlings-swarm.html">https://www.nytimes.com/2021/10/01/science/physics-midges-starlings-swarm.html</a></li>
+<li><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002894">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002894</a></li>
+<li><a href="https://royalsocietypublishing.org/doi/epdf/10.1098/rspb.2012.2484">https://royalsocietypublishing.org/doi/epdf/10.1098/rspb.2012.2484</a></li>
+<li><a href="https://vergenet.net/%7Econrad/boids/pseudocode.html">https://vergenet.net/~conrad/boids/pseudocode.html</a></li>
+<li><a href="http://www.red3d.com/cwr/boids/">http://www.red3d.com/cwr/boids/</a></li>
+<li><a href="https://developer.apple.com/documentation/metal/using_metal_to_draw_a_view_s_contents">https://developer.apple.com/documentation/metal/using<em>metal</em>to<em>draw</em>a<em>view</em>s_contents</a></li>
+</ul>
+
+<p><strong>Resources used for project</strong></p>
+
+<ul>
+<li>Metal framework</li>
+<li>iOS development tools</li>
+</ul>
+
+<h2 id="toc_7">Contributions from each team member</h2>
+
+<ul>
+<li>Allison Husain: Developed the basic data structures and project outline, implemented the Metal rendering pipeline, worked with Shaina on the user interface, collaborated with Anik to design the tile acceleration structure, and then implemented it in Metal</li>
+<li>Anik Gupta: Worked on some of the bird physics, implemented screen tapping based target setting for the flock, implemented velocity smoothing and capping, worked with Allison to design the tile accelerator, and used the tile accelerator to speedup radius based distance and force calculations.</li>
+<li>Shaina Chen: Added the initial parameter slider UI and modified the simulation code to respond to parameters, worked with Anik to add background</li>
+<li>Sydney Karimi: Worked on the initial implementation of bird physics, tuned flocking parameters, worked with Shaina on debugging the sliders</li>
+</ul>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
